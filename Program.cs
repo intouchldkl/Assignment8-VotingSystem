@@ -14,6 +14,14 @@ namespace Assignment8_VotingSystem
             Console.WriteLine(Vote.getTotalVotes());
 
             castVotes(votes);
+
+            int[] eachPartyVotes = CountVotes(votes);
+            for(int i = 0;i < eachPartyVotes.Length;i++)
+            {
+                Console.WriteLine(votes[i].getPartyName() + ": " + eachPartyVotes[i]);
+            }
+
+            Console.WriteLine("The party with the most vote is " + GetMostVotedParty(votes));
             Console.WriteLine(GetWinner(votes));
 
             
@@ -21,12 +29,12 @@ namespace Assignment8_VotingSystem
 
         static void castVotes(Vote[] votes)
         {
-            string name;
+            string name = " ";
             
             int input = -1 ;
             int i = 0;
             
-            while (input != 0)
+            while (input != 0 )
             {
                 Console.WriteLine("Hello What's your name?");
                 name = Console.ReadLine();
@@ -36,7 +44,7 @@ namespace Assignment8_VotingSystem
 
                 input = Convert.ToInt32(Voteinput);
 
-                if (input == 1)
+                if (input == 1  )
                 {
                     votes[i] = new Vote(name,"Democrats");
                     i = i + 1;
@@ -51,7 +59,7 @@ namespace Assignment8_VotingSystem
                     votes[i] = new Vote(name, "Facists");
                     i = i + 1;
                 }
-                else if(input == 0)
+                else if(input == 0 )
                 {
                     Console.WriteLine("Voting ended.");
                 }
@@ -142,7 +150,7 @@ namespace Assignment8_VotingSystem
             {
                 return " No party has enough votes to win";
             }
-            return Winner;
+            return"The winner is " +  Winner;
 
 
 
